@@ -18,6 +18,11 @@
         <h4 class="side-box-title">Haveしたユーザー</h4>
         <div class="side-box-body">
           <% # TODO Haveしたユーザー一覧 %>
+          <% @have_users.each do |have_user| %>
+            <a href="<%= user_path(have_user) %>">
+              <%= gravatar_for(have_user, size: 50) %>
+            </a>
+          <% end %>
 
         </div>
       </div>
@@ -25,11 +30,16 @@
         <h4 class="side-box-title">Wantしたユーザー</h4>
         <div class="side-box-body">
           <% # TODO Wantしたユーザー一覧 %>
+          <% @want_users.each do |want_user| %>
+            <a href="<%= user_path(want_user) %>">
+              <%= gravatar_for(want_user, size: 50) %>
+            </a>
+          <% end %>
         </div>
       </div>
       <div class="text-center">
         <% #TODO 正しいリンク先に %>
-        <%= link_to('楽天詳細ページへ', '#') %>
+        <%= link_to('楽天詳細ページへ', @item.detail_page_url) %>
       </div>
     </div>
   </div>
